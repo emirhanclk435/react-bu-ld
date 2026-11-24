@@ -10,9 +10,10 @@ function Home(){
    const[count,setCount]=useState(1);  
    const[searchParams]=useSearchParams();
    const query=searchParams.get("query");
- const ctrl= query ? `https://api.themoviedb.org/3/search/movie?query=${get}&page=${count}`:
+ const ctrl= query ? `https://api.themoviedb.org/3/search/movie?query=${query}&page=${count}`:
   `https://api.themoviedb.org/3/movie/popular?page=${count}`;
   
+
     const{data,isLoading,error}=useAthome(ctrl);
     if(error) return <h3>error at home</h3>
     if(isLoading) return <h2>isLOADİNG</h2>

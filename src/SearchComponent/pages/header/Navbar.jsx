@@ -10,6 +10,7 @@ function Nav(){
   const{setActive}=useSound(false);
 
   const[search,setSearchParams]=useSearchParams();
+
   
   return(
 <div className="border-4 border-white w-[70%] flex items-center h-20 rounded-3xl mt-11 bg-[#D92626]">

@@ -10,7 +10,7 @@ function Genres(){
     const[count,setCount]=useState(1);
     const[searchParams]=useSearchParams();
     const get=searchParams.get("query");
-    const trl=get ? `https://api.themoviedb.org/3/search/movie?query=${get}&page=${count}` : 
+   const trl=get.trim() !== "" ? `https://api.themoviedb.org/3/search/movie?query=${get}&page=${count}` : 
     `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${count}&sort_by=popularity.desc&with_genres=${id}`;
 
 const{data,isLoading,error}=useGenres(trl);
