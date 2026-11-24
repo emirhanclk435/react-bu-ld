@@ -453,7 +453,7 @@ const ProfileCard = ({
             <>
               <span className={LAYER} style={SCRIM_STYLE} />
               <div className={INFO}>
-                {name && <h3 className={NAME}>{name}</h3>}
+                {name && <h3 className="text-2xl">{name}</h3>}
                 {title && <p className={TITLE}>{title}</p>}
               </div>
             </>

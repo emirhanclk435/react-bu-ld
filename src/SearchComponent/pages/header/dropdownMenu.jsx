@@ -25,13 +25,13 @@ const{data,isLoading,error}=useDetail('https://api.themoviedb.org/3/genre/movie/
 
     return(
   <>
-  <DropdownMenuTrigger>
+  <DropdownMenuTrigger className="z-[3020232]">
   <Button className="bg-[oklch(54.2%_0.034_322.5)] border-2 border-blue-800 text-white font-bold tracking-tight" variant="outline">Categories</Button>
-  <DropdownMenu className="bg-gray-600 text-white">
+  <DropdownMenu className="bg-gray-600 brightness-125 z-50 text-white">
  {data ? data.genres.map((x)=>{
  return <DropdownMenuGroup>
   <DropdownMenuItem asChild>
-  <Link key={x.id} to={`/categories/${x.id}`}>{x.name}</Link>  
+  <Link className="transition z-50 duration-100 hover:text-black" key={x.id} to={`/categories/${x.id}`}>{x.name}</Link>  
   </DropdownMenuItem>
 </DropdownMenuGroup>
  }) 

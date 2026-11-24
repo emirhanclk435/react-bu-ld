@@ -2,34 +2,34 @@ import {useDetail} from "@/Apis/CategorytoMovies/customDetail";
 import { useParams } from "react-router-dom";
 function Detail(){
     const{id}=useParams();
-    const img='https://image.tmdb.org/t/p/w500/';
+    const img='https://image.tmdb.org/t/p/original/';
     const{data,isLoading,error}=useDetail(`https://api.themoviedb.org/3/movie/${id}?language=en-US`);
 
     if(error) return <h3>error in detail page</h3>
     if(isLoading) return <h2>isLOADİNG</h2>
     return(
- <div className="h-[50rem] rounded-4xl bg-gray-500  w-[80rem] mt-5">
-<section className="border-4 min-w-full h-full border-gray-800 flex justify-center">
-<div className="w-full h-full grid grid-cols-[repeat(2,1fr)] justify-center">
-<div className="min-h-full border-r-8 p-3 border-white">
-    <h3 className="tracking-tighter font-serif contrast-200 saturate-150"><strong>Overview:<br/>{data.overview}</strong></h3>
+<div className="bg-black border-4 h-[90vh] flex flex-col relative mt-12 w-[90%]"> 
+{/*katman layer eklemeye çalışacaz */}
+<div className="absolute border-8 top-0 left-0 border-red-700 z-[-10000] opacity-40 w-full h-full"> 
+    </div>
+<div className="w-full  h-full z-[999999] p-4 contrast-100 flex flex-col">
+    <div className="w-full h-[50%]">
+ <img className="rounded-3xl border-4 border-black  saturate-100 brightness-120 aspect-[2/4] object-fill opacity-180 h-[75%] w-[100%]" src={`${img}${data.backdrop_path}`}/>
+    </div>
+{/*ust kısım bıtdı */}
+<div className="w-full h-[50%] grid grid-cols-2">
+   <div className="w-[calc(100% - 500px)] text-white tracking-tight flex flex-col items-center font-extrabold border-4 border-gray-500">
+<h1 className="text-3xl">{data.original_title}</h1>
+<p className="tracking-tighter font-extralight contrast-150 saturate-200"><strong>{data.overview}</strong></p>
+</div> 
+<div className=" w-[calc(100% - 500px)]">
+
+    <img className="object-center contrast-150 w-full h-[500px]" src={`${img}${data.poster_path}`}/>
 </div>
 
-<div className="h-full flex border-2 gap-y-2.5 border-gray-600 flex-col">
-    <div className="flex items-center justify-center">
-  <img className="aspect-square w-[90%] transition duration-500 hover:grayscale-0 hover:saturate-200 object-cover rounded-2xl brightness-125 grayscale-25" src={`${img}${data.poster_path}`}/>
-    </div>
- <div className="border-t-4 bg-sky-500 border-white">
- <p className="text-sky-950 saturate-150 contrast-200 tracking-wider font-extralight">{data.overview}</p>
-     {data.production_countries.map((x)=>{
-return <h3 className="text-xl tracking-widest">Countries:<br/><span><mark>{x.name}</mark></span></h3>
-     })}
- </div>
-  
+    </div> 
 </div>
 </div>
-</section>
- </div>
     );
 }
 export default Detail;

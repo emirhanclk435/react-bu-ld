@@ -7,7 +7,6 @@ const author={
     'accept':'application/json',
   }
 };
-console.log(token);
 
   export const openserver=async(e)=>{
 try{

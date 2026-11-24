@@ -6,17 +6,12 @@
 
 body{
   height:100dvh;
+  border: 6px solid red;
 }
 html body{
   margin:0;
   padding:0;
   box-sizing: border-box;
-}
-h1{
-  display:block;
-  background-color:blue;
-  border-radius: 6px;
-  height:66px;
 }
 @custom-variant dark (&:is(.dark *));
 
